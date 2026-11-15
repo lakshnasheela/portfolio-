@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakshnasri R | B.Sc Computer Science | Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #fff; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,15,26,0.92); backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; border-bottom: 1px solid #2a2a3e;
+    }
+    nav .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; color: #667eea; }
+    nav ul { display: flex; gap: 20px; list-style: none; }
+    nav ul a { color: #ccc; font-size: 0.9rem; transition: 0.3s; }
+    nav ul a:hover { color: #667eea; }
+
+    /* HERO */
+    header {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    }
+    .badge {
+      background: #ffc107; color: #1a1a2e; font-weight: 700;
+      padding: 6px 18px; border-radius: 20px; font-size: 0.85rem;
+      margin-bottom: 20px; letter-spacing: 1px;
+    }
+    header h1 { font-size: 3.3rem; letter-spacing: 2px; margin-bottom: 10px; }
+    header h1 span { color: #667eea; }
+    header p.tagline { font-size: 1.2rem; color: #a0a0b8; margin-bottom: 8px; }
+    header p.sub { font-size: 0.95rem; color: #7a7a95; margin-bottom: 30px; }
+    .btn {
+      display: inline-block; padding: 12px 30px; border-radius: 30px;
+      background: #667eea; color: #fff; font-weight: 600; transition: 0.3s;
+      border: 2px solid #667eea;
+    }
+    .btn:hover { background: transparent; color: #667eea; }
+    .btn-outline { background: transparent; color: #667eea; margin-left: 10px; }
+    .btn-outline:hover { background: #667eea; color: #fff; }
+
+    /* SECTIONS */
+    section { max-width: 1000px; margin: auto; padding: 85px 25px; }
+    section h2 {
+      font-size: 2.1rem; margin-bottom: 40px; text-align: center;
+      color: #fff; position: relative; display: inline-block;
+      left: 50%; transform: translateX(-50%);
+    }
+    section h2::after {
+      content: ''; display: block; width: 60px; height: 4px;
+      background: #667eea; margin: 12px auto 0; border-radius: 2px;
+    }
+    .about-text { text-align: center; max-width: 750px; margin: auto; color: #b0b0c8; font-size: 1.05rem; }
+
+    /* EDUCATION */
+    .edu-card {
+      background: #1c1c2e; padding: 25px; border-radius: 12px;
+      border-left: 4px solid #667eea; margin-bottom: 15px;
+    }
+    .edu-card h3 { color: #fff; margin-bottom: 5px; }
+    .edu-card .meta { color: #8fa0ff; font-size: 0.9rem; margin-bottom: 8px; }
+    .edu-card p { color: #a0a0b8; font-size: 0.92rem; }
+
+    /* SKILLS */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .skill-card {
+      background: #1c1c2e; padding: 25px; border-radius: 12px;
+      text-align: center; transition: 0.3s; border: 1px solid #2a2a3e;
+    }
+    .skill-card:hover { transform: translateY(-5px); border-color: #667eea; box-shadow: 0 10px 25px rgba(102,126,234,0.2); }
+    .skill-card .icon { font-size: 2.3rem; margin-bottom: 10px; }
+    .skill-card h3 { color: #667eea; margin-bottom: 8px; font-size: 1.05rem; }
+    .skill-card p { color: #a0a0b8; font-size: 0.88rem; }
+
+    /* PROJECTS */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 25px; }
+    .project-card {
+      background: #1c1c2e; border-radius: 12px; overflow: hidden;
+      transition: 0.3s; border: 1px solid #2a2a3e;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(102,126,234,0.25); }
+    .project-img {
+      height: 150px; background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
+    }
+    .project-body { padding: 22px; }
+    .project-body h3 { margin-bottom: 6px; font-size: 1.05rem; }
+    .project-body .live { 
+      display: inline-block; background: #28a745; color: #fff; 
+      font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; 
+    }
+    .project-body .soon { 
+      display: inline-block; background: #ffc107; color: #1a1a2e; font-weight: 700;
+      font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; 
+    }
+    .project-body p { color: #a0a0b8; font-size: 0.88rem; margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: #2a2a3e; color: #8fa0ff; font-size: 0.72rem; padding: 4px 10px; border-radius: 20px; }
+
+    /* CERTIFICATES */
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .cert-card {
+      background: #1c1c2e; padding: 22px; border-radius: 12px;
+      border-left: 4px solid #ffc107; transition: 0.3s;
+    }
+    .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(255,193,7,0.15); }
+    .cert-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .cert-card h3 { color: #fff; font-size: 1rem; margin-bottom: 5px; }
+    .cert-card p { color: #a0a0b8; font-size: 0.85rem; }
+    .cert-card .meta { color: #ffc107; font-size: 0.8rem; margin-top: 8px; }
+
+    /* CONTACT */
+    .contact-info { text-align: center; }
+    .contact-info p { margin-bottom: 12px; font-size: 1.05rem; color: #b0b0c8; }
+    .contact-info a { font-weight: 600; }
+    .socials { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .socials a {
+      padding: 10px 22px; border: 1px solid #667eea; border-radius: 25px;
+      transition: 0.3s; font-size: 0.9rem;
+    }
+    .socials a:hover { background: #667eea; color: #fff; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 30px; background: #1c1c2e; color: #888; font-size: 0.88rem; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 12px 18px; }
+      nav ul { gap: 10px; }
+      nav ul a { font-size: 0.72rem; }
+      header h1 { font-size: 2.2rem; }
+      header p.tagline { font-size: 1rem; }
+      .btn-outline { margin-left: 0; margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">LAKSHNASRI</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="badge">🎓 FRESHER · OPEN TO WORK</div>
+    <h1>Hi, I'm <span>Lakshnasri R</span></h1>
+    <p class="tagline">B.Sc Computer Science Graduate</p>
+    <p class="sub">Final-Year Student · Graduating 2026 · Thanjavur</p>
+    <div>
+      <a href="#projects" class="btn">View My Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="about-text">
+      I'm <strong>Lakshnasri R</strong>, a final-year B.Sc Computer Science student at
+      AVVM Sri Pushpam College (Autonomous), Poondi, Thanjavur. I have a strong passion
+      for web development and cloud computing. My recent project —
+      <strong>SHG Smart Assistant</strong> — is a multilingual AI chatbot that helps
+      Women's Self-Help Group members access government schemes. I'm also learning
+      <strong>AWS Cloud Computing</strong> (EC2, S3, IAM, VPC). I'm a quick learner,
+      eager to start my career, and excited to contribute to real-world software projects.
+    </p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-card">
+      <h3>B.Sc Computer Science</h3>
+      <div class="meta">AVVM Sri Pushpam College (Autonomous), Poondi – 613 503, Thanjavur · Graduating 2026</div>
+      <p>CGPA: <strong>8.2 / 10</strong></p>
+    </div>
+
+    <div class="edu-card">
+      <h3>HSC (12th Standard)</h3>
+      <div class="meta">Sri Saraswathi Patasala Girls Higher Secondary School</div>
+      <p>Percentage: <strong>70.5%</strong></p>
+    </div>
+
+    <div class="edu-card">
+      <h3>SSLC (10th Standard)</h3>
+      <div class="meta">Anna Government Model Higher Secondary School</div>
+      <p>Percentage: <strong>62.6%</strong></p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <div class="icon">☁️</div>
+        <h3>Cloud Computing (On Going)</h3>
+        <p>EC2, S3, IAM, VPC · Windows & Linux</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🌐</div>
+        <h3>Web Technologies</h3>
+        <p>HTML5, CSS3, JavaScript, Jinja2</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🐍</div>
+        <h3>Programming</h3>
+        <p>Python, Flask</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🗄️</div>
+        <h3>Database</h3>
+        <p>MySQL</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🔌</div>
+        <h3>API Integration</h3>
+        <p>OpenRouter API, REST APIs</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🛠️</div>
+        <h3>Tools</h3>
+        <p>VS Code, Git, GitHub</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🤝</div>
+        <h3>Soft Skills</h3>
+        <p>Communication, Teamwork, Quick Learner</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+
+      <!-- Project 1 — SHG Smart Assistant -->
+      <div class="project-card">
+        <div class="project-img">🤖</div>
+        <div class="project-body">
+          <span class="live">COMPLETED</span>
+          <h3>SHG Smart Assistant (Multilingual AI Chatbot)</h3>
+          <p>
+            A web-based intelligent chatbot designed to assist Women's Self-Help Group (SHG)
+            members in the Thanjavur region. It provides instant information about
+            <strong>10+ government schemes</strong>, local business ideas, and DRDA contact
+            details in <strong>Tamil, English, and Tanglish</strong>. Features secure user
+            authentication, chat history management, and integrates an AI API for
+            answering general queries.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Jinja2</span>
+            <span class="tag">OpenRouter API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 — This Portfolio -->
+      <div class="project-card">
+        <div class="project-img">🎨</div>
+        <div class="project-body">
+          <span class="live">COMPLETED</span>
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            A responsive personal portfolio built from scratch to showcase my skills,
+            education, and projects. Designed with a modern dark theme and smooth
+            navigation — fully mobile-friendly.
+          </p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="certs">
+
+      <div class="cert-card">
+        <div class="icon">🏆</div>
+        <h3>Workshop Certificate — 1</h3>
+        <p>AI and DS Workshop</p>
+        <div class="meta">Conducted by: Live Wire Training Institute · Year: 2026</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="icon">🏆</div>
+        <h3>Workshop Certificate — 2</h3>
+        <p>Foundation of Data Analysis in Python</p>
+        <div class="meta">Conducted by: Brintelli Tech Academy · Hosted at: AVVM Sri Pushpam College · Year: 2026</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="icon">📍</div>
+        <h3>Field Visit Certificate</h3>
+        <p>>Industrial Visit — VDart Academy</p>
+        <div class="meta">Organized by: AVVM Sri Pushpam College (Autonomous), Poondi · Year: 2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-info">
+      <p>📧 Email: <a href="mailto:lakshnashella@gmail.com">lakshnashella@gmail.com</a></p>
+      <p>📱 Phone: <a href="tel:+918610295659">+91 8610295659</a></p>
+      <p>📍 Location: Thanjavur, Tamil Nadu</p>
+      <div class="socials">
+        <a href="https://github.com/lakshnasheela" target="_blank">GitHub</a>
+        <a href="file:///C:/Users/acer/Desktop/Resume.pdf" target="_blank">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Lakshnasri R. All rights reserved. Built with ❤️</p>
+  </footer>
+
+</body>
+</html>
